@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://dgln0g18tgokh"]
+[gd_scene load_steps=5 format=3 uid="uid://dgln0g18tgokh"]
 
-[node name="main" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://c7egag7fy4ad" path="res://entities/player/player.tscn" id="1_dmpee"]
+[ext_resource type="Script" path="res://addons/godot_interaction/interaction_area.gd" id="2_h1pnw"]
+[ext_resource type="Script" path="res://entities/npc/npc.gd" id="3_fc1wh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sg61k"]
+radius = 128.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dmpee")]
+
+[node name="NPC" type="Node2D" parent="."]
+position = Vector2(384, 256)
+metadata/_edit_group_ = true
+
+[node name="InteractionArea" type="Area2D" parent="NPC"]
+collision_layer = 0
+script = ExtResource("2_h1pnw")
+action_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/InteractionArea"]
+shape = SubResource("CircleShape2D_sg61k")
+
+[node name="Polygon2D" type="Polygon2D" parent="NPC"]
+position = Vector2(-352, -224)
+polygon = PackedVector2Array(320, 192, 384, 192, 384, 256, 320, 256)
+
+[node name="NPC2" type="Node2D" parent="."]
+position = Vector2(552, 144)
+script = ExtResource("3_fc1wh")
+metadata/_edit_group_ = true
+
+[node name="InteractionArea" type="Area2D" parent="NPC2"]
+collision_layer = 0
+script = ExtResource("2_h1pnw")
+action_name = "have a long talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/InteractionArea"]
+shape = SubResource("CircleShape2D_sg61k")
+
+[node name="Polygon2D" type="Polygon2D" parent="NPC2"]
+position = Vector2(-352, -224)
+polygon = PackedVector2Array(320, 192, 384, 192, 384, 256, 320, 256)
