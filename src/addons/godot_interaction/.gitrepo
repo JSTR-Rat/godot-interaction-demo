@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
 ;
 [subrepo]
-	remote = none
-	branch = master
-	commit = 
+	remote = git@github.com:JSTR-Rat/godot-interaction.git
+	branch = main
+	commit = c91d9b0167b9f1fda2f6d39ba1bd9a34798bc516
 	method = merge
 	cmdver = 0.4.7
