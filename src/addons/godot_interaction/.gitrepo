@@ -6,6 +6,7 @@
 [subrepo]
 	remote = git@github.com:JSTR-Rat/godot-interaction.git
 	branch = main
-	commit = c91d9b0167b9f1fda2f6d39ba1bd9a34798bc516
+	commit = 27a0223f7ade123a952d0747d0e78d39beca3b86
 	method = merge
 	cmdver = 0.4.7
+	parent = fa8305bf52ff55a4dfb2d37589372716f0112cc1

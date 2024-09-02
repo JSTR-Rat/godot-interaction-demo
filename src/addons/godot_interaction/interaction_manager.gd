@@ -22,7 +22,7 @@ func _process(delta):
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 64
-		label.global_position.x -= label.size.x / 2
+		label.global_position.x -= (label.size.x * label.scale.x) / 2
 		label.show()
 	else:
 		label.hide()
@@ -38,6 +38,7 @@ func _input(event):
 			can_interact = false
 			label.hide()
 
-			await active_areas[0].interact.call()
+			active_areas[0].interact(player)
+			await active_areas[0].action_finished
 
 			can_interact = true
